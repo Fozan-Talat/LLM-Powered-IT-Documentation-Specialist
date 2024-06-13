@@ -1,6 +1,6 @@
 db/
-meeting-transcription/
-generated-brd/
+# meeting-transcription/
+# generated-brd/
 
 db.sqlite3
 db.sqlite3-journal
