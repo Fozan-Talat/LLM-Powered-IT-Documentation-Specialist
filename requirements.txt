@@ -5,3 +5,4 @@ mammoth
 markdown
 python-dotenv
 gradio
+streamlit #if you want to use stramlit UI
