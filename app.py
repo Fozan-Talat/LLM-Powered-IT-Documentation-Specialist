@@ -94,5 +94,3 @@ def call_crew_kickoff(str_current_datetime):
 
     return result
 
-if __name__=='__main__':
-    uvicorn.run('app:app', reload=True)
