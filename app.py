@@ -25,9 +25,10 @@ async def upload_file(file: dict):
 
     # Save file and convert to markdown
     content = base64.b64decode(file.get("document"))
-    with open(f"{file.get("filename")}", "wb") as docx_file:
+    src_filename = file.get("filename")
+    with open(f"{src_filename}", "wb") as docx_file:
         docx_file.write(content)
-    with open(file.get("filename"), "rb") as docx_file:
+    with open(src_filename, "rb") as docx_file:
         result = mammoth.convert_to_markdown(docx_file)
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(result.value)
