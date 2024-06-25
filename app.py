@@ -1,4 +1,5 @@
 import uvicorn
+import base64
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from datetime import datetime
@@ -17,15 +18,16 @@ os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
 os.environ["OPENAI_API_KEY"] = openai_api_key
 
 @app.post("/upload")
-async def upload_file(file: UploadFile = File(...)):
+async def upload_file(file: dict):
     current_datetime = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
     filename = f'meeting-transcription/meeting-transcript_{current_datetime}.md'
+    print(filename)
 
     # Save file and convert to markdown
-    content = await file.read()
-    with open(f"{file.filename}", "wb") as docx_file:
+    content = base64.b64decode(file.get("document"))
+    with open(f"{file.get("filename")}", "wb") as docx_file:
         docx_file.write(content)
-    with open(file.filename, "rb") as docx_file:
+    with open(file.get("filename"), "rb") as docx_file:
         result = mammoth.convert_to_markdown(docx_file)
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(result.value)
