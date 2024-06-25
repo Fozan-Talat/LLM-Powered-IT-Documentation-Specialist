@@ -4,5 +4,6 @@ langchain_community
 mammoth
 markdown
 python-dotenv
+fastapi
 gradio
 streamlit #if you want to use stramlit UI
