@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from datetime import datetime
@@ -92,3 +93,6 @@ def call_crew_kickoff(str_current_datetime):
     result = crew.kickoff(inputs={'datetime': str_current_datetime})
 
     return result
+
+if __name__=='__main__':
+    uvicorn.run('app:app', reload=True)
