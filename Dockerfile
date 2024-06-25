@@ -17,4 +17,4 @@ WORKDIR $HOME/app
 
 COPY --chown=user . $HOME/app
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
