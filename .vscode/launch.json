@@ -12,6 +12,17 @@
             "console": "integratedTerminal",
             "args": ["run","${file}"]
 
+        },
+        {
+            "name": "Python: debugging",
+            "type": "python",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "program": "${file}"
+
         }
     ]
 }
+    
+    
+

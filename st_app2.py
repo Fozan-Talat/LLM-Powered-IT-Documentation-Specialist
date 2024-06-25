@@ -143,7 +143,7 @@ def process_file(input_file):
  
 # Streamlit UI
 st.set_page_config(layout="wide")
-st.title("BRD Generator from Meeting Transcript")
+st.title("Gen AI Powered Documentation Specialist")
 st.write("Upload your meeting transcript in `.docx` format to generate a Business Requirements Document (BRD).")
  
 uploaded_file = st.file_uploader("Choose a .docx file", type=["docx"])
